@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 70px
+}
+
+td, th {
+  border: 0px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<script type="text/javascript">
+function preventBack() {
+    window.history.forward(); 
+}
+  
+setTimeout("preventBack()", 0);
+  
+window.onunload = function () { null };
+</script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a href="/">Home</a>
+</nav>
+
+<table style="width:80%" border="1"
+           class = "table table-striped table-responsive-md">
+    <thead>
+  <tr>
+    <th>Customer Id</th>
+    <th>Application Number</th>
+    <th>First Name</th>
+    <th>Middle Name</th>
+    <th>Last Name</th>
+    <th>Bank Name</th>
+    <th>Pan Card Number</th>
+    <th>Phone Number</th>
+    <th>mail</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="cust:${customers}">
+        <td th:text="${cust.cId}"></td>
+         <td th:text="${cust.applicationNo}"></td>
+         <td th:text="${cust.firstName}"></td>
+         <td th:text="${cust.middleName}"></td>
+         <td th:text="${cust.lastName}"></td>
+         <td th:text="${cust.bankName}"></td>
+         <td th:text="${cust.panCardNumber}"></td>
+         <td th:text="${cust.phoNumber}"></td>
+         <td th:text="${cust.mail}"></td>
+          <td th:text="${cust.message}"></td>
+          <td id="date" th:text="${cust.reqDate}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+window.history.forward();
+function noBack() {
+    window.history.forward();
+}
+
+
+</script>
+
+
+</body>
+</html>

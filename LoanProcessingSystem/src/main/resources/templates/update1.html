@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+input[type=text] {
+	width: 20%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+
+	<form action="#" th:action="@{/updatee}" th:object="${customer}"
+		method="POST">
+
+		<!-- Add hidden form field to handle update -->
+		<input type="hidden" th:field="*{cId}" /> <input type="text"
+			id="applicationNo" th:field="*{applicationNo}" name="applicationNo" />
+		<br /> <input type="text" th:field="*{firstName}"
+			class="form-control mb-4 col-4" name="firstName" /> <br /> <input
+			type="text" th:field="*{middleName}" name="middleName" /> <br /> <input
+			type="text" th:field="*{lastName}" name="lastName" /> <br /> <input
+			type="text" th:field="*{bankName}" id="bankName" name="bankName" />
+		<br /> <input type="text" th:field="*{panCardNumber}"
+			id="panCardNumber" name="panCardNumber" /> <br /> <input type="text"
+			th:field="*{phoNumber}" name="phoNumber" /> <br /> <input
+			type="text" th:field="*{mail}" name="mail" /> <br />
+
+		<button type="submit" class="btn btn-info col-2">Update
+			Customer</button>
+	</form>
+	
+	<a href="/administration">back</a>
+
+	<script type="text/javascript">
+		window.history.forward();
+		function noBack() {
+			window.history.forward();
+		}
+	</script>
+
+</body>
+</html>

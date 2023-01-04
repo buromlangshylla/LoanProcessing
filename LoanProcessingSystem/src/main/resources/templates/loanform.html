@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+<form action="#" th:action="@{/addloan}" th:object="${LoanPrograms}" method="POST">
+  <h1>Loan Programs</h1>
+  
+    <label for="lNo">Loan Id</label>
+    <input type="number" id="lNo" name="lNo"/>  <br/>
+    
+   <label for="bankName">Bank Name</label>
+    <input type="text" name="bankName" />  <br/>
+     
+    <label for="loanAmount">Loan Amount</label>
+    <input type="text" name="loanAmount" />  <br/>
+   
+    <label for="tenureRange">Tenure Range</label>
+    <input type="text" name="tenureRange" />  <br/>
+  
+<button type="submit">Submit</button>
+</form>
+<script>  
+	id="[[${loanno}]]";
+	b=parseInt(id);
+	document.getElementById("bankName").value =b;
+	
+	window.history.forward();
+	function noBack() {
+	    window.history.forward();
+	}
+	
+  </script>
+
+
+</body>
+</html>

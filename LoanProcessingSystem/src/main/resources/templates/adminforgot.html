@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="/">home</a>
+
+<form action="/newpass" method="post">
+<h2>Change Password</h2>
+  <label style="margin-left: 0.1px;" for="id">Admin id:</label>
+  <input type="text" id="id" name="id" th:value="${value}" autocomplete="off"><br>
+  <label for="npass">Admin New Password:</label>
+  <input type="text" id="npass" name="npass" required="required" autocomplete="off"><br>
+  <label for="cpass">Admin Confirm New Password:</label>
+  <input type="text" id="cpass" name="cpass" required="required" autocomplete="off"><br><br>
+  <input type="submit" value="Submit" onclick="noBack()">
+  <h4 th:text="${update}">message</h4>
+</form>
+
+</body>
+</html>

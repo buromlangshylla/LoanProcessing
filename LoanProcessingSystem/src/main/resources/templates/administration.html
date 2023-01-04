@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+<style>
+table {
+
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+}
+th{
+font-size:15px;
+}
+td{
+font-size:13px;
+}
+tr{
+height: 10px
+}
+.btn-primary{
+font-size:13px;
+width: 50px;
+height: 22px;
+padding: 0px 0px;
+}
+
+</style>
+
+<script type="text/javascript">
+function preventBack() {
+    window.history.forward(); 
+}
+  
+setTimeout("preventBack()", 0);
+  
+window.onunload = function () { null };
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div>
+  <h1>Logged In As Administrator</h1>
+ </div> 
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+     <button><a class="nav-link" href="/">logout</a></button> 
+      </li>
+      <li class="nav-item">
+       <button><a class="nav-link" href="http://localhost:8080/adminRegs">Add Approver</a></button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h4>Customer Details</h4>
+<table style="width:90%" border="1"
+           class = "table table-striped table-responsive-md">
+    <thead>
+  <tr>
+    <th>Customer Id</th>
+    <th>Application Number</th>
+    <th>First Name</th>
+    <th>Middle Name</th>
+    <th>Last Name</th>
+    <th>Bank Name</th>
+    <th>Pan Card Number</th>
+    <th>Phone Number</th>
+    <th>mail</th>
+    <th>edit</th>
+    <th>Approve/Reject</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="cust:${customers}">
+        <td th:text="${cust.cId}"></td>
+        <td th:text="${cust.applicationNo}"></td>
+         <td th:text="${cust.firstName}"></td>
+         <td th:text="${cust.middleName}"></td>
+         <td th:text="${cust.lastName}"></td>
+         <td th:text="${cust.bankName}"></td>
+         <td th:text="${cust.panCardNumber}"></td>
+         <td th:text="${cust.phoNumber}"></td>
+         <td th:text="${cust.mail}"></td>
+         <td ><a th:href="@{/updatee/{cId}(cId=${cust.cId})}"
+                class="btn btn-primary">update</a><br><br>
+                
+         <a th:href="@{/delete/{cId}(cId=${cust.cId})}"
+                class="btn btn-primary">delete</a></td>
+                
+          <td >
+          <a th:href="@{/accept/{cId}(cId=${cust.cId})}">Approve</a><br>
+          <a th:href="@{/reject/{cId}(cId=${cust.cId})}">Rejected</a><br>
+           </td >
+          <td th:text="${cust.message}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<h4>Loan Programs</h4>
+
+<table style="width:80%" border="1"
+           class = "table table-striped table-responsive-md">
+    <thead>
+ <tr>
+    <th>loan number</th>
+    <th>Bank Name</th>
+    <th>Loan Amount</th>
+    <th>Tenure Range</th>
+    <th>Edit</th>
+  </tr>
+  </thead>
+  <tbody>
+ <tr th:each="loan:${loanList}">
+        <td th:text="${loan.lNo}"></td>
+         <td th:text="${loan.bankName}"></td>
+         <td th:text="${loan.loanAmount}"></td>
+         <td th:text="${loan.tenureRange}"></td>
+          <td ><a th:href="@{/deleteloan/{lNo}(lNo=${loan.lNo})}"
+                class="btn btn-primary">delete</a></td>       
+  </tr>
+  </tbody>
+</table>
+
+<button><a th:href="@{/addloan}"
+                class="btn btn-primary">add loan programs</a></button>
+
+
+
+   <script type="text/javascript">
+window.history.forward();
+function noBack() {
+    window.history.forward();
+}
+</script>             
+                
+
+</body>
+</html>

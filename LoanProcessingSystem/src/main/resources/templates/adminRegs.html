@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+function preventBack() {
+    window.history.forward(); 
+}
+  
+setTimeout("preventBack()", 0);
+  
+window.onunload = function () { null };
+</script>
+
+
+</head>
+<body>
+
+
+	<form action="#" th:action="@{/adminadd}" th:object="${ApprovalDept}"
+		method="post">
+		<div class="container">
+			<h1>Add Approver</h1>
+			<hr>
+
+			<h4 id="text" th:text="${text}"></h4>
+			<h4 id="remove" th:text="${remove}"></h4>
+			<label for="dId"><b>User Id</b></label><br> 
+			<input th:value="${no}" type="text" placeholder="Enter User Id" name="dId" id="dId" onclick="none()"autocomplete="off" required><br> 
+			<label for="dName"><b>User Name</b></label><br> 
+			<input type="text" placeholder="Enter User Id" name="dName" id="dName"autocomplete="off" required><br> 
+			<label for="email"><b>Email</b></label><br>
+			<input type="text" placeholder="Enter Email" name="email" id="email" autocomplete="off"
+				required><br> <label for="password"><b>Password</b></label><br>
+			<input type="password" placeholder="Enter Password" name="password"
+				id="password" required><br>
+
+			<hr>
+
+			<button type="submit" class="registerbtn">Add</button>
+		</div>
+
+	</form>
+	<h2>Remove Approver</h2>
+
+
+	<form action="/admindele" method="post">
+		<div>
+			<label for="uId"><b>User Id</b></label><br> <input type="text"
+				placeholder="Enter user Id" name="uId" id="uId" onclick="none()"
+				required><br> 
+			<button>Remove</button>
+		</div>
+
+
+		<p>
+			Back to Administrator Page <a href="/administration">back</a>.
+		</p>
+
+	</form>
+
+
+	<script type="text/javascript">
+		
+
+		var message = document.getElementById("text");
+		var message1 = document.getElementById("remove");
+		function none() {
+			message.style.display = "none";
+			message1.style.display = "none";
+		}
+		
+		window.history.forward();
+		function noBack() {
+			window.history.forward();
+		}
+	</script>
+
+
+</body>
+</html>

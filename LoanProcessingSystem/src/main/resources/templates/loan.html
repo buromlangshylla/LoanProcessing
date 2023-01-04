@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a href="/">Home</a>
+</nav>
+
+
+ <table style="width:80%" border="1"
+           class = "table table-striped table-responsive-md">
+    <thead>
+  <tr>
+    <th>loan number</th>
+    <th>Bank Name</th>
+    <th>Loan Amount</th>
+    <th>Tenure Range</th>
+    <th>Apply</th>
+    
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="loan:${loanList}">
+        <td th:text="${loan.lNo}"></td>
+         <td th:text="${loan.bankName}"></td>
+         <td th:text="${loan.loanAmount}"></td>
+         <td th:text="${loan.tenureRange}"></td>
+         <td ><a th:href="@{/customer/{bankName}(bankName=${loan.bankName})}"
+                class="btn btn-primary">link</a></td>
+  </tr>
+  </tbody>
+</table>
+
+
+<form id="form1" onclick="yourFunction()" method="post">
+
+  <div class="container" style="text-align: center;">
+    <label for="applicationNo"><b>Enter Application Id</b></label><br>
+    <input type="text" placeholder="Application Number" id="applicationNo" name="applicationNo" autocomplete="off"  required><br>
+     <button type="submit">view status</button><br>
+    <h5 th:text="${error}">error</h5>
+</div>
+</form>
+
+<script type="text/javascript">
+function yourFunction(){
+    var action_src = "/status1/" + document.getElementsByName("applicationNo")[0].value;
+    var your_form = document.getElementById("form1");
+    your_form.action = action_src ;
+}
+
+
+
+
+</script>
+
+</body>
+</html>

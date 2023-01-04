@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>Schedule interview for Application Number</h1>
+
+<form action="/interview" method="post">
+
+<label>Customer Number</label>
+<input th:value="${cId}" type="text" id="cId" name="cId"></input>
+
+<label>Application Number</label>
+<input th:value="${date}" type="text" id="appId" name="appId"></input>
+
+<label>Schedule Date</label>
+<input type="date" id="reqDate" name="reqDate">
+
+<input type="submit"></input>
+
+<h4 th:text="${sms}"></h4><a href="/admin">back</a>
+
+</form>
+
+<script type="text/javascript">
+$(function(){
+    var dtToday = new Date();
+ 
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+   
+    $('#reqDate').attr('min', maxDate);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="/">home</a>
+<form action="/newget" method="post">
+<h2>Change Password</h2>
+  <label style="margin-left: 0.1px;" for="id">User id:</label>
+  <input type="text" id="id" name="id" th:value="${value}" autocomplete="off"><br>
+  <label for="npass">User New Password:</label>
+  <input type="text" id="npass" name="npass" autocomplete="off" required="required"><br>
+  <label for="cpass">User Confirm New Password:</label>
+  <input type="text" id="cpass" name="cpass" autocomplete="off" required="required"><br><br>
+  <input type="submit" value="Submit">
+  <h4 th:text="${update}">message</h4>
+</form>
+
+
+
+</body>
+</html>

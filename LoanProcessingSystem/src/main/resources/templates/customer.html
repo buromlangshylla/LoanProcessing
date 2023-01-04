@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+</head>
+<body font-color="red">
+
+<form action="#" th:action="@{/add}" th:object="${Customers}" method="POST">
+	<table border='0' width='480px' cellpadding='0' cellspacing='0'
+		align='center'>
+		<center>
+			<tr>
+				<td ><h1>Loan Application</h1></td>
+			</tr>
+			<center>
+
+				<table border='0' width='480px' cellpadding='0' cellspacing='0'
+					align='center'>
+					<tr>
+						<td align='left'>Application Number</td>
+						<td><input type="text" id="applicationNo" name="applicationNo" autocomplete="off" /></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align='left'>First Name</td>
+						<td><input type="text" name="firstName" autocomplete="off"/> </td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align='left'>Middle Initial</td>
+						<td><input type="text" name="middleName" autocomplete="off" /></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align='left'>Last Name</td>
+						<td><input type="text" name="lastName" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align='left'>Bank Name</td>
+						<td><input type="text" id="bankName" name="bankName" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align='left'>PanCard Number</td>
+						<td><input type="text" id="panCardNumber" name="panCardNumber" autocomplete="off"/></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align='left'>Phone Number</td>
+						<td><input type="text" name="phoNumber" autocomplete="off" /></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td align='left'>Email</td>
+						<td><input type="text" name="mail" autocomplete="off" /></td>
+					</tr>
+					
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					
+					<table border='0' cellpadding='0' cellspacing='0' width='480px' align='center'>
+						<tr>
+							<td align='center'><input type='submit' name='submit'
+								value="submit"></td>
+						</tr>
+					</table>
+				</table>
+	</table>
+	
+	</form>
+
+ <script>  
+	var id="[[${value}]]";
+	document.getElementById("bankName").value = id;
+	cid="[[${applicationNo}]]";
+	document.getElementById("applicationNo").value = cid;
+	
+  </script>
+
+</body>
+</html>
